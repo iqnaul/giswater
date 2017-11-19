@@ -6,6 +6,8 @@ This version of Giswater is provided by Giswater Association
 
 
 CREATE OR REPLACE FUNCTION "SCHEMA_NAME".gw_trg_vnode_update() RETURNS trigger AS $BODY$
+
+$BODY$
 DECLARE
     connecPoint geometry;
     arcPoint geometry;
@@ -27,8 +29,8 @@ BEGIN
         NEW.the_geom = ST_ClosestPoint(arcrec.the_geom, NEW.the_geom);
     END IF;
 
-    -- Select links with end on the updated vnode
-    FOR linkrec IN SELECT * FROM link WHERE vnode_id = NEW.vnode_id
+     -- Select links with end on the updated vnode
+    FOR linkrec IN SELECT * FROM link WHERE vnode_id = NEW.vnode_id AND NEW.userdefined_pos IS NOT TRUE
     LOOP
         -- Update link
         connecPoint := (SELECT the_geom FROM connec WHERE connec_id = linkrec.connec_id);

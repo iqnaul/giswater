@@ -5,11 +5,12 @@ This version of Giswater is provided by Giswater Association
 */
 
 
-CREATE OR REPLACE FUNCTION SCHEMA_NAME.gw_trg_connec_update() RETURNS trigger LANGUAGE plpgsql AS $$
+CREATE OR REPLACE FUNCTION SCHEMA_NAME.gw_trg_connec_update() RETURNS trigger AS $BODY$ 
 DECLARE 
     querystring Varchar; 
     linkrec Record; 
     connecRecord Record; 
+    vnodeRecord Record; 
 
 BEGIN 
 
@@ -27,9 +28,12 @@ BEGIN
 
         -- Initial and final connec of the link
         SELECT * INTO connecRecord FROM connec WHERE connec.connec_id = linkrec.connec_id;
+        SELECT * INTO vnodeRecord FROM vnode WHERE vnode.vnode_id=linkrec.vnode_id;
         
         -- Control de lineas de longitud 0
-        IF (connecRecord.connec_id IS NOT NULL)  THEN
+        IF (connecRecord.connec_id IS NOT NULL)  AND ( vnodeRecord.userdefined_pos IS NOT TRUE) THEN
+        
+         -- Update link
             EXECUTE 'UPDATE link SET the_geom = ST_SetPoint($1, 0, $2) WHERE link_id = ' || quote_literal(linkrec."link_id") USING linkrec.the_geom, NEW.the_geom; 
         END IF;
 
@@ -38,7 +42,9 @@ BEGIN
     RETURN NEW;
     
 END; 
-$$;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
 
 
 DROP TRIGGER IF EXISTS gw_trg_connec_update ON "SCHEMA_NAME"."connec";
