@@ -6,7 +6,7 @@ This version of Giswater is provided by Giswater Association
 
 SET search_path = "SCHEMA_NAME", public, pg_catalog;
 
-
+/*
 
 CREATE SEQUENCE doc_x_gully_seq
   START WITH 1
@@ -23,3 +23,4 @@ CREATE TABLE "doc_x_gully" (
 "gully_id" varchar(16)  ,
 CONSTRAINT doc_x_gully_pkey PRIMARY KEY (id)
 );
+*/

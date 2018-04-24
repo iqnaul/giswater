@@ -7,6 +7,52 @@ This version of Giswater is provided by Giswater Association
 
 SET search_path = "SCHEMA_NAME", public, pg_catalog;
 
+
+CREATE TABLE "cat_mat_arc" (
+"id" integer,
+"value" varchar(50),
+"descript" text,
+"n" numeric(12,4),
+"link" varchar(512)  ,
+CONSTRAINT cat_mat_arc_pkey PRIMARY KEY (id)
+);
+
+
+CREATE TABLE "cat_mat_node" (
+"id" integer,
+"value" varchar(50),
+"descript" text,
+"link" varchar(512)  ,
+CONSTRAINT cat_mat_node_pkey PRIMARY KEY (id)
+);
+
+
+CREATE TABLE "cat_mat_element" (
+"id" integer,
+"value" varchar(50),
+"descript" text,
+"link" varchar(512)  ,
+CONSTRAINT cat_mat_element_pkey PRIMARY KEY (id)
+);
+
+
+CREATE TABLE "cat_element" (
+"id" integer,
+"value" varchar(50),
+"descript" text,
+"elementtype_id" varchar(30)  ,
+"cat_mat_element_id" varchar(30)  ,
+"geometry" varchar(30)  ,
+"link" varchar(512)  ,
+"cat_brand_id" integer  ,
+"type" varchar(30)  ,
+"cat_model_id" integer  ,
+"svg" varchar(50),
+"is_active" boolean,
+CONSTRAINT cat_element_pkey PRIMARY KEY (id)
+);
+
+
 CREATE TABLE "cat_soil" (
 "id" integer,
 "value" varchar(50),
@@ -104,7 +150,15 @@ CREATE TABLE "cat_fluid" (
 CONSTRAINT man_type_fluid_pkey PRIMARY KEY (id)
 );
 
+
 CREATE TABLE "cat_verified" (
+"id" integer PRIMARY KEY,
+"value" varchar(50),
+"descript" text
+);
+
+
+CREATE TABLE "cat_user"(
 "id" integer PRIMARY KEY,
 "value" varchar(50),
 "descript" text

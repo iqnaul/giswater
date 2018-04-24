@@ -20,7 +20,7 @@ CREATE SEQUENCE "element_x_gully_seq"
     NO MAXVALUE
     CACHE 1;
 
-*/
+
 -- ----------------------------
 -- Table structure for gully type
 -- ----------------------------
@@ -34,13 +34,13 @@ CREATE TABLE "gully_type" (
 "link_path" varchar(254),
 CONSTRAINT gully_type_pkey PRIMARY KEY (id)
 );
-
+*/
 
 -- ----------------------------
 -- Table structure for CATALOGS
 -- ----------------------------
 
-
+/*
 CREATE TABLE "cat_mat_arc" (
 "id" varchar(30)  ,
 "descript" varchar(512)  ,
@@ -186,7 +186,7 @@ CONSTRAINT cat_grate_pkey PRIMARY KEY (id)
 );
 
 
-
+*/
 
 -- ----------------------------
 -- Table: GIS features

@@ -50,20 +50,21 @@ CREATE SEQUENCE "cat_arc_seq"
 -- ----------------------------
 -- Table: system structure 
 -- ----------------------------
+/*
 CREATE TABLE "cat_users"(
 id varchar(50) NOT NULL PRIMARY KEY,
 "name" varchar(150),
 "context" varchar(50)
 );
 
-/*
+
 CREATE TABLE "cat_feature"(
 id character varying(30) NOT NULL,
 system_id character varying(30),
 feature_type character varying(30),
 CONSTRAINT cat_feature_pkey PRIMARY KEY (id)
 );
-*/
+
  
 CREATE TABLE "arc_type" (
 "id" varchar(30) ,
@@ -117,7 +118,7 @@ CREATE TABLE "element_type" (
 CONSTRAINT element_type_pkey PRIMARY KEY (id)
 );
 
-
+*/
 -- ----------------------------
 -- Table: domain value system structure 
 -- ----------------------------
@@ -169,7 +170,7 @@ CREATE TABLE "cat_arc_class_type" (
 "name" varchar(50),
 "observ" text
 );
-
+/*
 CREATE TABLE "cat_mat_element" (
 "id" varchar(30)  ,
 "descript" varchar(512)  ,
@@ -192,7 +193,7 @@ CREATE TABLE "cat_element" (
 "active" boolean,
 CONSTRAINT cat_element_pkey PRIMARY KEY (id)
 );
-
+*/
 /*
 CREATE TABLE "cat_soil" (
 "id" varchar(30)   NOT NULL,
@@ -364,7 +365,7 @@ CONSTRAINT man_type_location_pkey PRIMARY KEY (id)
 -- ----------------------------
 -- Table: GIS map zones
 -- ----------------------------
-
+/*
 CREATE TABLE "macroexploitation"(
 macroexpl_id integer NOT NULL PRIMARY KEY,
 name character varying(50) ,
@@ -431,7 +432,7 @@ expl_id integer,
 username character varying(50)
 );
 
-
+*/
 
 -- ----------------------------
 -- Table: GIS features
@@ -482,7 +483,7 @@ CREATE TABLE "element" (
 "feature_type" varchar (16) DEFAULT 'ELEMENT',
 "tstamp" timestamp DEFAULT now()
 );
-*/
+
 
 CREATE TABLE "element_x_arc" (
 "id" serial8 NOT NULL PRIMARY KEY,
@@ -504,7 +505,7 @@ CREATE TABLE "element_x_connec" (
 "connec_id" varchar(16)
 );
 
-
+*/
 
 
 -- ----------------------------------

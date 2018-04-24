@@ -30,7 +30,7 @@ CREATE SEQUENCE pool_id_seq
 -- Table: Catalogs
 -- ----------------------------
 
-
+/*
 CREATE TABLE "cat_mat_arc" (
 "id" varchar(30)  ,
 "descript" varchar(512)  ,
@@ -44,8 +44,8 @@ CREATE TABLE "cat_mat_node" (
 "descript" varchar(512)  ,
 "link" varchar(512)  ,
 CONSTRAINT cat_mat_node_pkey PRIMARY KEY (id)
-);
-
+);*/
+/*
 CREATE TABLE "cat_arc" (
 "id" varchar (30) DEFAULT nextval('"SCHEMA_NAME".cat_arc_seq'::regclass) NOT NULL,
 "arctype_id" varchar(30),
@@ -125,7 +125,7 @@ CONSTRAINT cat_connec_pkey PRIMARY KEY (id)
  CONSTRAINT cat_presszone_pkey PRIMARY KEY (id)
  );
 
-
+*/
 
 -- ----------------------------
 -- Table: GIS features

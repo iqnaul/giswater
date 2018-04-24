@@ -8,6 +8,13 @@ This version of Giswater is provided by Giswater Association
 SET search_path = "SCHEMA_NAME", public, pg_catalog;
 
 
+CREATE SEQUENCE urn_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
 -- ----------------------------
 -- Table: GIS features
 -- ----------------------------
@@ -56,7 +63,7 @@ CREATE TABLE "node" (
 "inv_id" integer PRIMARY KEY,
 "top_elev" numeric(12,4),
 "ymax" numeric(12,4),
-"expl_id" integer,
+"exploitation_id" integer,
 "dma_id" integer,
 "sector_id" integer,
 "cat_fluid_id" integer,
@@ -87,7 +94,7 @@ CREATE TABLE "arc" (
 "epatype_id" varchar(16),
 "y1" numeric(12,2),
 "y2" numeric(12,2),
-"expl_id" integer,
+"exploitation_id" integer,
 "dma_id" integer,
 "sector_id" integer,
 "cat_fluid_id" integer,
@@ -117,7 +124,7 @@ CREATE TABLE "link" (
 "label_x" character varying(30),
 "label_y" character varying(30),
 "label_rotation" numeric(6,3),
-"the_geom" public.geometry (LINE, SRID_VALUE)
+"the_geom" public.geometry (LINESTRING, SRID_VALUE)
 );
 
 
