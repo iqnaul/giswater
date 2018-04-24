@@ -11,7 +11,7 @@ SET search_path = "SCHEMA_NAME", public, pg_catalog;
 -- SEQUENCES
 -- -----------------------------
 
-
+/*
 
 CREATE SEQUENCE "element_x_gully_seq"
     START WITH 1
@@ -20,7 +20,7 @@ CREATE SEQUENCE "element_x_gully_seq"
     NO MAXVALUE
     CACHE 1;
 
-
+*/
 -- ----------------------------
 -- Table structure for gully type
 -- ----------------------------
@@ -192,7 +192,7 @@ CONSTRAINT cat_grate_pkey PRIMARY KEY (id)
 -- Table: GIS features
 -- ----------------------------
 
-
+/*
 CREATE TABLE "node" (
 "node_id" varchar(16) DEFAULT nextval('"SCHEMA_NAME".urn_id_seq'::regclass) NOT NULL,
 "code" varchar (30),
@@ -618,21 +618,21 @@ CREATE TABLE "man_varc"(
 "arc_id" character varying(16) NOT NULL PRIMARY KEY
 );
 
-
+*/
 
  
 -- ----------------------------------
 -- Table: Element
 -- ----------------------------------
 
-
+/*
 CREATE TABLE "element_x_gully" (
 "id" varchar(16) DEFAULT nextval ('"SCHEMA_NAME".element_x_gully_seq'::regclass) NOT NULL,
 "element_id" varchar(16),
 "gully_id" varchar(16),
 CONSTRAINT element_x_gully_pkey PRIMARY KEY (id)
 );
-
+*/
 ----------------
 -- INDEX
 ----------------

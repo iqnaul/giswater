@@ -8,7 +8,7 @@ This version of Giswater is provided by Giswater Association
 SET search_path = "SCHEMA_NAME", public, pg_catalog;
 
  
-
+/*
 CREATE SEQUENCE pond_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -23,7 +23,7 @@ CREATE SEQUENCE pool_id_seq
     NO MAXVALUE
     CACHE 1;
 
-
+*/
 
 
 -- ----------------------------
@@ -131,7 +131,7 @@ CONSTRAINT cat_connec_pkey PRIMARY KEY (id)
 -- Table: GIS features
 -- ----------------------------
 
-
+/*
 CREATE TABLE "node" (
 "node_id" varchar(16) DEFAULT nextval('"SCHEMA_NAME".urn_id_seq'::regclass) NOT NULL,
 "code" varchar (30),
@@ -583,3 +583,4 @@ CREATE INDEX connec_index ON connec USING GIST (the_geom);
 CREATE INDEX vnode_index ON vnode USING GIST (the_geom);
 CREATE INDEX link_index ON link USING GIST (the_geom);
 
+*/

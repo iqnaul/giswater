@@ -56,14 +56,14 @@ id varchar(50) NOT NULL PRIMARY KEY,
 "context" varchar(50)
 );
 
-
+/*
 CREATE TABLE "cat_feature"(
 id character varying(30) NOT NULL,
 system_id character varying(30),
 feature_type character varying(30),
 CONSTRAINT cat_feature_pkey PRIMARY KEY (id)
 );
-
+*/
  
 CREATE TABLE "arc_type" (
 "id" varchar(30) ,
@@ -128,7 +128,7 @@ CREATE TABLE sys_feature_type (
   net_category smallint
 );
 
-
+/*
 CREATE TABLE sys_feature_cat (
   id character varying(30) PRIMARY KEY,
   type character varying(30),
@@ -136,7 +136,7 @@ CREATE TABLE sys_feature_cat (
   tablename character varying(100),
   shortcut_key character varying(100)
 );
-
+*/
 
 
 
@@ -193,7 +193,7 @@ CREATE TABLE "cat_element" (
 CONSTRAINT cat_element_pkey PRIMARY KEY (id)
 );
 
-
+/*
 CREATE TABLE "cat_soil" (
 "id" varchar(30)   NOT NULL,
 "descript" varchar(512),
@@ -260,7 +260,7 @@ id varchar (30),
 "link" varchar(512)  ,
  CONSTRAINT cat_brand_type_pkey PRIMARY KEY (id)
  );
- 
+ */
  
  -----------
 -- Temporal tables
@@ -283,7 +283,7 @@ user_name text DEFAULT current_user
 -- Link/ vnode
 -----------
 
-
+/*
 
 CREATE TABLE "vnode" (
 "vnode_id" serial NOT NULL PRIMARY KEY,
@@ -311,14 +311,14 @@ expl_id integer,
 the_geom public.geometry (LINESTRING, SRID_VALUE),
 tstamp timestamp DEFAULT now()
 );
-
+*/
 
 
 -----------
 -- Table: value domain (type)
 -----------
 
-
+/*
 CREATE TABLE "man_type_function" (
 "id" serial NOT NULL,
 "function_type" varchar(50),
@@ -357,7 +357,7 @@ CREATE TABLE "man_type_location" (
 CONSTRAINT man_type_location_pkey PRIMARY KEY (id)
 );
 
-
+*/
 
 
 
@@ -436,7 +436,7 @@ username character varying(50)
 -- ----------------------------
 -- Table: GIS features
 -- ----------------------------
-
+/*
 CREATE TABLE polygon(
 pol_id character varying(16) NOT NULL PRIMARY KEY,
 sys_type varchar(30),
@@ -482,7 +482,7 @@ CREATE TABLE "element" (
 "feature_type" varchar (16) DEFAULT 'ELEMENT',
 "tstamp" timestamp DEFAULT now()
 );
-
+*/
 
 CREATE TABLE "element_x_arc" (
 "id" serial8 NOT NULL PRIMARY KEY,
@@ -525,11 +525,12 @@ is_operative boolean,
 is_doable boolean
 );
 
+/*
 CREATE TABLE "value_verified" (
 "id" varchar(30) NOT NULL PRIMARY KEY, 
 "observ" text
 );
-
+*/
 
 CREATE TABLE "value_yesno" (
 "id" varchar(30) NOT NULL PRIMARY KEY,
