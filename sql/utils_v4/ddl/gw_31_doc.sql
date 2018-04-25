@@ -14,7 +14,7 @@ CREATE SEQUENCE doc_seq
   CACHE 1;
 
 
-CREATE TABLE "doc_type" (
+CREATE TABLE "cat_doc" (
 "id" integer,
 "value" varchar(50),
 "descipt" text
@@ -26,7 +26,7 @@ CREATE TABLE "doc" (
 "id" integer DEFAULT nextval ('"SCHEMA_NAME".doc_seq'::regclass) NOT NULL,
 "value" varchar(50),
 "descipt" text ,
-"doc_type_id" integer,
+"cat_doc_id" integer,
 "path" varchar(512),
 "date" timestamp(6) DEFAULT now(),
 "user_name" varchar(50) DEFAULT user,
@@ -45,7 +45,7 @@ CONSTRAINT doc_x_inv_pkey PRIMARY KEY (doc_id,inv_id)
 CREATE TABLE "doc_x_visit"(
 id serial NOT NULL PRIMARY KEY,
 doc_id character varying(30),
-visit_id integer 
+om_visit_id integer 
 );
 
 

@@ -112,10 +112,18 @@ CONSTRAINT cat_node_pkey PRIMARY KEY (id)
 );
 
 
+CREATE TABLE cat_mat_grate (
+id integer,
+value varchar(50),
+descript text,
+link varchar(512)  ,
+CONSTRAINT cat_mat_node_pkey PRIMARY KEY (id)
+);
+
 CREATE TABLE cat_grate (
 id integer  DEFAULT nextval ('SCHEMA_NAME.cat_grate_seq'::regclass) NOT NULL,
 value varchar (50),
-cat_mat_node_id varchar (16)  ,
+cat_mat_grate_id varchar (16)  ,
 length numeric(12,4),
 width numeric(12,4) DEFAULT 0.00,
 total_area numeric(12,4) DEFAULT 0.00,

@@ -163,6 +163,9 @@ CREATE TABLE price_compost_value (
 );
 
 
+
+
+
 CREATE TABLE price_value_unit (
   id integer PRIMARY KEY,
   value character varying(50),
