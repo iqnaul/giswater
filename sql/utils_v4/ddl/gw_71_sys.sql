@@ -20,7 +20,7 @@ observ text
 );
 
 CREATE TABLE sys_cat_statetype (
-id int2 NOT NULL PRIMARY KEY,
+id int2 PRIMARY KEY,
 value varchar(30), 
 sys_cat_state_id int2,
 is_operative boolean
@@ -67,7 +67,7 @@ descript text
 -- ----------------------------
 
 CREATE TABLE sys_cat_fprocess (
-id integer NOT NULL PRIMARY KEY,
+id integer PRIMARY KEY,
 fprocess_name varchar(50),
 context varchar (30),
 fprocess_i18n varchar (50),
@@ -75,8 +75,8 @@ project_type varchar(6)
 );
 
 CREATE TABLE sys_cat_function (
-id integer NOT NULL PRIMARY KEY,
-function_name text NOT NULL,
+id integer PRIMARY KEY,
+function_name text,
 project_type text,
 function_type text,
 input_params text,
@@ -91,46 +91,46 @@ sys_role_id text
 -- ----------------------------
 
 CREATE TABLE sys_cat_epatype (
-id integer NOT NULL PRIMARY KEY,
+id integer PRIMARY KEY,
 value varchar(30),
 class_id integer
 );
 
 CREATE TABLE sys_sel_inp_result (
-id serial NOT NULL PRIMARY KEY,
+id serial PRIMARY KEY,
 result_id varchar(30),
 user_name text
 );
 
 CREATE TABLE sys_sel_rpt_result (
-id serial NOT NULL PRIMARY KEY, 
+id serial PRIMARY KEY, 
 result_id varchar(30) ,
 user_name text
 );
 
 CREATE TABLE sys_sel_rpt_hourly (
-id serial NOT NULL,
+id serial ,
 time varchar(100),
 user_name text,
 CONSTRAINT sys_sel_rpt_hourly_pkey PRIMARY KEY (id,user_name)
 );
 
 CREATE TABLE sys_sel_rpt_compare (
-id serial NOT NULL,
+id serial ,
 result_id varchar(30),
 user_name text,
 CONSTRAINT sys_sel_rpt_compare_pkey PRIMARY KEY (id,user_name)
 );
 
 CREATE TABLE sys_sel_sector(
-id serial NOT NULL,
+id serial ,
 sector_id integer,
 user_name text,
 CONSTRAINT sys_sel_sector_pkey PRIMARY KEY (id,user_name)
 );
 
 CREATE TABLE sys_sel_dscenario (
-id serial NOT NULL,
+id serial ,
 dscenario_id integer,
 user_name text,
 CONSTRAINT sys_sel_dscenario_pkey PRIMARY KEY (id,user_name)
@@ -141,21 +141,21 @@ CONSTRAINT sys_sel_dscenario_pkey PRIMARY KEY (id,user_name)
 -- ----------------------------
 
 CREATE TABLE sys_sel_workcat (
-id serial NOT NULL,
+id serial ,
 cat_work_id text,
 user_name text,
 CONSTRAINT sys_sel_workcat_pkey PRIMARY KEY (id,user_name)
 );
 
 CREATE TABLE sys_sel_audit (
-id serial NOT NULL,
+id serial ,
 fprocesscat_id integer,
 user_name text,
 CONSTRAINT sys_sel_audit_pkey PRIMARY KEY (id,user_name)
 );
 
 CREATE TABLE sys_sel_date (
-id serial NOT NULL,
+id serial ,
 from_date date,
 to_date date,
 context varchar(30),
@@ -164,7 +164,7 @@ CONSTRAINT sys_sel_date_pkey PRIMARY KEY (id,user_name)
 );
 
 CREATE TABLE sys_sel_expl (
-id serial NOT NULL,
+id serial ,
 exploitation_id integer,
 user_name text,
 CONSTRAINT sys_sel_expl_pkey PRIMARY KEY (id,user_name)
@@ -183,8 +183,8 @@ CONSTRAINT sys_sel_psector_pkey PRIMARY KEY (plan_psector_id,user_name)
 );
 
 CREATE TABLE sys_sel_plan_result (
-epa_rpt_cat_result_id integer,
+epa_cat_result_id integer,
 user_name text,
-CONSTRAINT sys_sel_plan_result_pkey PRIMARY KEY (epa_rpt_cat_result_id,user_name)
+CONSTRAINT sys_sel_plan_result_pkey PRIMARY KEY (epa_cat_result_id,user_name)
 );
 
