@@ -10,7 +10,7 @@ SET search_path = "SCHEMA_NAME", public, pg_catalog;
 -- ----------------------------
 -- Base map
 -- ----------------------------
-
+/*
 
 -- Municipality
 CREATE TABLE "ext_municipality" (
@@ -75,3 +75,4 @@ CREATE TABLE "ext_plot"(
 
 );
 
+*/

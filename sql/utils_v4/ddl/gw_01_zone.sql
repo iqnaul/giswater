@@ -5,14 +5,14 @@ This version of Giswater is provided by Giswater Association
 */
 
 
-SET search_path = "SCHEMA_NAME", public, pg_catalog;
+SET search_path = SCHEMA_NAME, public, pg_catalog;
 
 
 -- ----------------------------
 -- Table: GIS features
 -- ----------------------------
 
-CREATE TABLE "macroexploitation"(
+CREATE TABLE macroexploitation(
 id integer NOT NULL PRIMARY KEY,
 value character varying(50) ,
 descript text,
@@ -31,7 +31,7 @@ tstamp timestamp DEFAULT now()
 );
 
 
-CREATE TABLE "macrodma"(
+CREATE TABLE macrodma(
 id serial NOT NULL PRIMARY KEY,
 value character varying(50),
 descript text,
@@ -41,14 +41,14 @@ the_geom geometry(MULTIPOLYGON,SRID_VALUE)
 );
 
 
-CREATE TABLE "dma" (
-"id" serial NOT NULL PRIMARY KEY,
-"value" character varying(30),
-"descript" text,
-"exploitation_id" integer,
-"macrodma_id" integer,
-"is_undelete" boolean,
-"the_geom" public.geometry (MULTIPOLYGON, SRID_VALUE)
+CREATE TABLE dma (
+id serial NOT NULL PRIMARY KEY,
+value character varying(30),
+descript text,
+exploitation_id integer,
+macrodma_id integer,
+is_undelete boolean,
+the_geom public.geometry (MULTIPOLYGON, SRID_VALUE)
 );
 
 
@@ -61,13 +61,13 @@ the_geom geometry (MULTIPOLYGON, SRID_VALUE)
 );
 
 
-CREATE TABLE "sector" (
-"id" serial NOT NULL PRIMARY KEY,
-"value" character varying(50),
-"descript" text,
-"macrosector_id" integer,
-"is_undelete" boolean,
-"the_geom" public.geometry (MULTIPOLYGON, SRID_VALUE)
+CREATE TABLE sector (
+id serial NOT NULL PRIMARY KEY,
+value character varying(50),
+descript text,
+macrosector_id integer,
+is_undelete boolean,
+the_geom public.geometry (MULTIPOLYGON, SRID_VALUE)
 );
 
 
