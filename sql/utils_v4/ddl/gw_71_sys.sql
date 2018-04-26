@@ -26,6 +26,20 @@ sys_cat_state_id int2,
 is_operative boolean
 );
 
+-- ----------------------------
+-- MANAGEMENT
+-- ----------------------------
+
+CREATE TABLE sys_cat_datatype (
+id integer, 
+value varchar (30)
+);
+
+CREATE TABLE sys_cat_widgettype (
+id integer,
+value varchar (30)
+);
+
 CREATE TABLE sys_cat_field (
 id integer PRIMARY KEY,
 inv_cat_systype_id integer,
@@ -36,6 +50,10 @@ field_length integer,
 num_decimals integer,
 default_value text
 );
+
+-- ----------------------------
+-- API
+-- ----------------------------
 
 CREATE TABLE sys_api_field (
 id integer PRIMARY KEY,
@@ -56,8 +74,8 @@ web_publish boolean
 );
 
 CREATE TABLE sys_api_field_vdomain (
+id integer,
 sys_api_fields_id integer,
-id serial,
 value varchar(30),
 descript text
 );
@@ -74,6 +92,15 @@ fprocess_i18n varchar (50),
 project_type varchar(6)
 );
 
+CREATE TABLE sys_cat_error (
+id integer PRIMARY KEY,
+error_message text,
+hint_message text,
+log_level int2 CHECK (log_level IN (0,1,2,3)) DEFAULT 1,
+show_user boolean DEFAULT 'True',
+project_type text DEFAULT 'utils'
+);
+
 CREATE TABLE sys_cat_function (
 id integer PRIMARY KEY,
 function_name text,
@@ -84,6 +111,32 @@ return_type text,
 context text,
 descript text,
 sys_role_id text
+);
+
+CREATE TABLE sys_cat_table(
+id text PRIMARY KEY,
+context text,
+description text,
+sys_cat_role_id character varying(30),
+sys_criticity smallint,
+sys_rows text,
+qgis_role_id character varying(30),
+qgis_criticity smallint,
+qgis_message text,
+sys_sequence text,
+sys_sequence_field text
+);
+
+CREATE TABLE sys_cat_userparam(
+id text PRIMARY KEY,
+context text,
+description text,
+sys_cat_role_id character varying(30),
+qgis_message text,
+dv_table text,
+dv_column text,
+dv_clause text,
+data_type text
 );
 
 -- ----------------------------
