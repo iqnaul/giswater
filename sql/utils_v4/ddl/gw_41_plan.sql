@@ -70,7 +70,7 @@ CREATE TABLE plan_psector_x_inv (
 id serial NOT NULL PRIMARY KEY,
 inv_id varchar(16) ,
 plan_psector_id integer, 
-sys_cat_stateinteger,
+sys_cat_state integer,
 is_doable boolean,
 descript text
 );
@@ -102,9 +102,9 @@ descript text
 
 
 CREATE TABLE plan_psector_selector(
-  id serial NOT NULL PRIMARY KEY,
-  plan_psector_id integer NOT NULL,
-  user_name text NOT NULL
+id serial NOT NULL PRIMARY KEY,
+plan_psector_id integer NOT NULL,
+user_name text NOT NULL
 );
 
 
@@ -122,54 +122,52 @@ user_name text
 
 
 CREATE TABLE audit_price_simple (
-  id integer PRIMARY KEY NOT NULL,
-  value varchar(50),
-  price_cat_simple_id integer,
-  price_value_unit_id integer,
-  descript text,
-  price numeric(12,4),
-  observ character varying(16),
-  tstamp timestamp default now(),
-  user_name text
+id integer PRIMARY KEY NOT NULL,
+value varchar(50),
+price_cat_simple_id integer,
+price_value_unit_id integer,
+descript text,
+price numeric(12,4),
+observ character varying(16),
+tstamp timestamp default now(),
+user_name text
 );
 
 
 CREATE TABLE price_simple (
-  id integer  PRIMARY KEY NOT NULL,
-  value character varying(50),
-  price_cat_simple_id integer,
-  price_value_unit_id integer,
-  descript character varying(100),
-  text text,
-  price numeric(12,4),
-  observ character varying(16)
+id integer  PRIMARY KEY NOT NULL,
+value character varying(50),
+price_cat_simple_id integer,
+price_value_unit_id integer,
+descript character varying(100),
+text text,
+price numeric(12,4),
+observ character varying(16)
 );
 
 
 CREATE TABLE price_compost (
-  id integer PRIMARY KEY NOT NULL,
-  value varchar(50),
-  price_value_unit_id integer,
-  descript text,
-  price numeric(12,4)
+id integer PRIMARY KEY NOT NULL,
+value varchar(50),
+price_value_unit_id integer,
+descript text,
+price numeric(12,4)
 );
 
 
 CREATE TABLE price_compost_value (
-  id serial PRIMARY KEY NOT NULL,
-  price_compost_id integer,
-  price_simple_id integer,
-  value numeric (16,4)
+id serial PRIMARY KEY NOT NULL,
+price_compost_id integer,
+price_simple_id integer,
+value numeric (16,4)
 );
 
 
 
-
-
 CREATE TABLE price_value_unit (
-  id integer PRIMARY KEY,
-  value character varying(50),
-  descript text
+id integer PRIMARY KEY,
+value character varying(50),
+descript text
 );
 
 

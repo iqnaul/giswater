@@ -1,15 +1,27 @@
-/*
+﻿/*
 This file is part of Giswater 3
 The program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 This version of Giswater is provided by Giswater Association
 */
 
 
-SET search_path = "SCHEMA_NAME", public, pg_catalog;
+SET search_path = SCHEMA_NAME, public, pg_catalog;
 
+CREATE TABLE sys_cat_role (
+id integer PRIMARY KEY,
+value varchar(30),
+context varchar(30),
+descript text
+);
+
+CREATE TABLE sys_cat_composer (
+id integer PRIMARY KEY,
+value varchar(50),
+context varchar(30)
+);
 
 CREATE TABLE sys_cat_class (
-id integer varchar(30) PRIMARY KEY,
+id integer PRIMARY KEY,
 value varchar(30)
 );
 
@@ -61,7 +73,7 @@ inv_cat_systype_id integer,
 column_id text,
 datatype_id text,
 widgettype_id integer,
-widget_dim ?,
+widget_dim varchar(30),
 is_mandatory boolean,
 is_combo_new_val boolean,
 is_editable boolean,
@@ -79,6 +91,41 @@ sys_api_fields_id integer,
 value varchar(30),
 descript text
 );
+
+CREATE TABLE sys_api_form_type (
+id integer PRIMARY KEY,
+value varchar(30)
+);
+
+CREATE TABLE sys_api_form_type_tab (
+id integer PRIMARY KEY,
+value varchar(30),
+sys_api_form_type_id integer
+);
+
+CREATE TABLE sys_api_cat_form_tview (
+id integer PRIMARY KEY,
+value varchar(30)
+);
+
+CREATE TABLE sys_api_cat_tbar (
+id integer PRIMARY KEY,
+value varchar(30),
+client_id integer,
+role_id integer
+);
+
+CREATE TABLE sys_api_cat_tbar_btn (
+id integer PRIMARY KEY,
+value varchar(30),
+tbar_id integer
+);
+
+CREATE TABLE sys_api_cat_device (
+id integer PRIMARY KEY,
+value varchar(30)
+);
+
 
 -- ----------------------------
 -- AUDIT
@@ -224,9 +271,9 @@ CONSTRAINT sys_sel_expl_pkey PRIMARY KEY (id,user_name)
 );
 
 CREATE TABLE sys_sel_state (
-sys_cat_state integer,
+sys_cat_state_id integer,
 user_name text,
-CONSTRAINT sys_sel_state_pkey PRIMARY KEY (id,user_name)
+CONSTRAINT sys_sel_state_pkey PRIMARY KEY (sys_cat_state_id,user_name)
 );
 
 CREATE TABLE sys_sel_psector (
@@ -236,8 +283,83 @@ CONSTRAINT sys_sel_psector_pkey PRIMARY KEY (plan_psector_id,user_name)
 );
 
 CREATE TABLE sys_sel_plan_result (
-epa_cat_result_id integer,
+id integer,
+om_result_cat_id integer,
 user_name text,
-CONSTRAINT sys_sel_plan_result_pkey PRIMARY KEY (epa_cat_result_id,user_name)
+CONSTRAINT sys_sel_plan_result_pkey PRIMARY KEY (om_result_cat_id,user_name)
 );
+
+-- ----------------------------
+-- PLAN & OM
+-- ----------------------------
+
+CREATE TABLE sys_plan_cat_restype (
+id integer PRIMARY KEY,
+value varchar (30)
+);
+
+CREATE TABLE sys_om_cat_actionevent (
+id integer PRIMARY KEY,
+value varchar(30)
+);
+
+CREATE TABLE sys_visit_cat_param (
+id integer PRIMARY KEY,
+code integer,
+value varchar(30),
+param_type varchar(30),
+criticity smallint,
+descript text
+);
+
+CREATE TABLE sys_visit_cat_param_field (
+id integer PRIMARY KEY,
+sys_cat_datatype_id integer,
+sys_cat_widgettype integer,
+widget_dim varchar(30),
+is_mandatory boolean,
+is_combo_new_value boolean,
+is_editable boolean,
+field_length integer,
+num_decimals integer,
+default_value text,
+placeholder text,
+form_label text,
+sql_text text
+);
+
+-- ----------------------------
+-- CSV
+-- ----------------------------
+
+CREATE TABLE sys_cat_csv2pg (
+id integer PRIMARY KEY,
+value varchar(30),
+csv_structure text,
+sys_cat_role_id integer
+);
+
+CREATE TABLE sys_cat_csv2pg_value (
+sys_cat_csv2pg_id integer,
+source varchar(100),
+target varchar(100),
+orderby integer,
+text text
+);
+
+CREATE TABLE sys_cat_pg2csv (
+id integer PRIMARY KEY,
+value varchar(30),
+csv_structure text,
+sys_cat_role_id integer
+);
+
+CREATE TABLE sys_cat_pg2csv_values (
+sys_cat_pg2csv_id integer,
+source varchar(100),
+target varchar(100),
+orderby integer,
+text text
+);
+
 

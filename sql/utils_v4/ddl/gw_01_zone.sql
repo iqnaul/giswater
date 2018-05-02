@@ -72,8 +72,4 @@ the_geom public.geometry (MULTIPOLYGON, SRID_VALUE)
 
 
 
-CREATE TABLE exploitation_x_user(
-id SERIAL PRIMARY KEY,
-exploitation_id integer,
-username character varying(50)
-);
+

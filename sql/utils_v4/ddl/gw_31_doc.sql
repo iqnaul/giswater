@@ -4,7 +4,7 @@ The program is free software: you can redistribute it and/or modify it under the
 This version of Giswater is provided by Giswater Association
 */
 
-SET search_path = "SCHEMA_NAME", public, pg_catalog;
+SET search_path = SCHEMA_NAME, public, pg_catalog;
 
 CREATE SEQUENCE doc_seq
   START WITH 1
@@ -14,35 +14,35 @@ CREATE SEQUENCE doc_seq
   CACHE 1;
 
 
-CREATE TABLE "cat_doc" (
-"id" integer,
-"value" varchar(50),
-"descipt" text
+CREATE TABLE cat_doc (
+id integer,
+value varchar(50),
+descipt text,
 CONSTRAINT doc_type_pkey PRIMARY KEY (id)
 );
   
   
-CREATE TABLE "doc" (
-"id" integer DEFAULT nextval ('"SCHEMA_NAME".doc_seq'::regclass) NOT NULL,
-"value" varchar(50),
-"descipt" text ,
-"cat_doc_id" integer,
-"path" varchar(512),
-"date" timestamp(6) DEFAULT now(),
-"user_name" varchar(50) DEFAULT user,
-"tstamp" timestamp DEFAULT now(),
+CREATE TABLE doc (
+id integer DEFAULT nextval ('SCHEMA_NAME.doc_seq'::regclass) NOT NULL,
+value varchar(50),
+descipt text ,
+cat_doc_id integer,
+path varchar(512),
+date timestamp(6) DEFAULT now(),
+user_name varchar(50) DEFAULT user,
+tstamp timestamp DEFAULT now(),
 CONSTRAINT doc_pkey PRIMARY KEY (id)
 );
 
 
-CREATE TABLE "doc_x_inv" (
-"doc_id" varchar(30),
-"inv_id" varchar(16),
+CREATE TABLE doc_x_inv (
+doc_id varchar(30),
+inv_id varchar(16),
 CONSTRAINT doc_x_inv_pkey PRIMARY KEY (doc_id,inv_id)
 );
 
 
-CREATE TABLE "doc_x_visit"(
+CREATE TABLE doc_x_visit(
 id serial NOT NULL PRIMARY KEY,
 doc_id character varying(30),
 om_visit_id integer 

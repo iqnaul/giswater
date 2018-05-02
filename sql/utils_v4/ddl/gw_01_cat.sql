@@ -94,7 +94,7 @@ CONSTRAINT cat_work_pkey PRIMARY KEY (id)
 CREATE TABLE cat_owner (
 id integer,
 value varchar(50),
-descript text,,
+descript text,
 link varchar(512)  ,
 CONSTRAINT cat_owner_pkey PRIMARY KEY (id)
 );
@@ -107,25 +107,25 @@ descript text,
 link varchar(512)  ,
 thickness numeric(12,2) DEFAULT 0.00,
 m2_cost varchar (16),
- CONSTRAINT cat_pavement_pkey PRIMARY KEY (id)
+CONSTRAINT cat_pavement_pkey PRIMARY KEY (id)
  );
  
 
- CREATE TABLE cat_brand (
+CREATE TABLE cat_brand (
 id integer,
 value varchar(50),
 descript text,
 link varchar(512),
- CONSTRAINT cat_brand_pkey PRIMARY KEY (id)
+CONSTRAINT cat_brand_pkey PRIMARY KEY (id)
  );
 
- CREATE TABLE cat_model (
+CREATE TABLE cat_model (
 id integer,
 value varchar(50),
 descript text,
 cat_brand_id varchar (30),
 link varchar(512)  ,
- CONSTRAINT cat_brand_type_pkey PRIMARY KEY (id)
+CONSTRAINT cat_brand_type_pkey PRIMARY KEY (id)
  );
 
 

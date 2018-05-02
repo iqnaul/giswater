@@ -19,7 +19,7 @@ CREATE SEQUENCE urn_id_seq
 -- Table: GIS features
 -- ----------------------------
 
-CREATE TABLE inv_cat_systable(
+CREATE TABLE inv_cat_systable (
 id serial PRIMARY KEY DEFAULT nextval('SCHEMA_NAME.urn_id_seq'::regclass),
 value varchar(50),
 class_id integer,
@@ -119,7 +119,7 @@ CREATE TABLE link (
 id integer PRIMARY KEY,
 inv_id integer,
 exit_node integer,
-sys_cat_state_id integer);
+sys_cat_state_id integer,
 label_x character varying(30),
 label_y character varying(30),
 label_rotation numeric(6,3),
@@ -150,6 +150,13 @@ element_id varchar(16),
 inv_id varchar(16),
 CONSTRAINT element_x_inv_pkey PRIMARY KEY (element_id,inv_id)
 );
+
+CREATE TABLE inv_addfields (
+id integer PRIMARY KEY,
+sys_cat_field_id integer,
+value varchar(30)
+);
+
 
 ----------------
 -- INDEX

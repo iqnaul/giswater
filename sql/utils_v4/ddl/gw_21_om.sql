@@ -113,7 +113,7 @@ event_code varchar(16),
 om_visit_id int8 NOT NULL,
 position_id varchar(50),
 position_value float,
-om_visit_parameter_id integer
+om_visit_parameter_id integer,
 value text,
 value1 integer,
 value2 integer,
@@ -354,15 +354,15 @@ the_geom public.geometry (MULTIPOLYGON, SRID_VALUE)
 CREATE TABLE om_psector_selector(
 id serial NOT NULL PRIMARY KEY,
 om_psector_id integer NOT NULL,
-cur_user text NOT NULL,
+cur_user text NOT NULL
 );
 
 
 CREATE TABLE om_psector_x_inv (
 inv_id varchar(16) ,
 om_psector_id integer, 
-descripttext
-CONSTRAINT om_visit_x_inv_pkey PRIMARY KEY (inv_id,om_psector_id)
+descript text,
+CONSTRAINT om_psector_x_inv_pkey PRIMARY KEY (inv_id,om_psector_id)
 );
 
 
