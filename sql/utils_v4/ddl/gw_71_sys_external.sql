@@ -52,7 +52,7 @@ ext_streetaxis_id character varying(16),
 postnumber character varying(16),
 ext_plot_id character varying(16),
 exploitation_id integer,
-the_geom geometry(Point,SRID_VALUE),
+the_geom geometry(Point,SRID_VALUE)
   );
 
   

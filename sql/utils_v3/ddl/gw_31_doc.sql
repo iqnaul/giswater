@@ -5,7 +5,7 @@ This version of Giswater is provided by Giswater Association
 */
 
 SET search_path = "SCHEMA_NAME", public, pg_catalog;
-
+/*
 CREATE SEQUENCE doc_seq
   START WITH 1
   INCREMENT BY 1
@@ -61,3 +61,4 @@ visit_id integer
 
 
 
++/

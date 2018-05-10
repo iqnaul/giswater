@@ -20,7 +20,7 @@ CREATE SEQUENCE urn_id_seq
 -- ----------------------------
 
 CREATE TABLE inv_cat_systable (
-id serial PRIMARY KEY DEFAULT nextval('SCHEMA_NAME.urn_id_seq'::regclass),
+id integer PRIMARY KEY DEFAULT nextval('SCHEMA_NAME.urn_id_seq'::regclass),
 value varchar(50),
 class_id integer,
 is_addfields boolean,
@@ -134,7 +134,7 @@ sys_cat_state_id integer,
 label_x character varying(30),
 label_y character varying(30),
 label_rotation numeric(6,3),
-the_geom (POLYGON,SRID_VALUE)
+the_geom public.geometry(POLYGON,SRID_VALUE)
 );
 
 

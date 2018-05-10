@@ -98,7 +98,7 @@ om_visit_cat_id integer,
 ext_code varchar (30),
 startdate timestamp(6) WITHOUT TIME ZONE DEFAULT now() ,
 enddate timestamp(6) WITHOUT TIME ZONE DEFAULT now() ,
-user_name varchar(50) DEFAULT user,
+user_name text DEFAULT user,
 exploitation_id integer,
 the_geom public.geometry (POINT, SRID_VALUE),
 descript text,
@@ -354,7 +354,7 @@ the_geom public.geometry (MULTIPOLYGON, SRID_VALUE)
 CREATE TABLE om_psector_selector(
 id serial NOT NULL PRIMARY KEY,
 om_psector_id integer NOT NULL,
-cur_user text NOT NULL
+user_name text NOT NULL
 );
 
 

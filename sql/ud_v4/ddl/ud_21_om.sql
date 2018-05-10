@@ -4,16 +4,22 @@ The program is free software: you can redistribute it and/or modify it under the
 This version of Giswater is provided by Giswater Association
 */
 
+SET search_path = "SCHEMA_NAME", public, pg_catalog;
 
-SET search_path = SCHEMA_NAME, public, pg_catalog;
 
-
-CREATE TABLE cfg_mincut_valve (
-id varchar(50) PRIMARY KEY
+CREATE TABLE om_profile_cat)(
+id integer PRIMARY KEY,
+value varchar(50),
+descript text
 );
 
-CREATE TABLE cfg_mincut_inlet (
-node_id integer,
-expl_id integer,
-CONSTRAINT cfg_mincut_inlet_pkey PRIMARY KEY (node_id,expl_id)
+
+CREATE TABLE om_profile_value
+(
+  id serial NOT NULL PRIMARY KEY,
+  om_profile_cat_id integer,
+  inv_id integer,
+  start_point_inv_id integer,
+  end_point_inv_id integer
 );
+
